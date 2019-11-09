@@ -53,7 +53,7 @@
       }
       // TODO 로또 번호(.number) html 생성 함수 작성 [feature/script]
       function genLottoHTML() {
-        var lottoHTML = "";
+        var lottoHTML = '';
         for (var i = 0; i < 5; i++) {
           var numbers = getLuckyNumber();
           lottoHTML += '<div class="numset"><span class="number">';
@@ -61,6 +61,15 @@
           lottoHTML += "</span></div>";
         }
         LOTTO.innerHTML = lottoHTML;
+      }
+      // 11,12,13과 같은 연속된 숫자가 3개이상 나오지 않도록 [testPR]
+      function checkLogic(numbers){
+        for(var i=0; i<numbers.length; i++){
+        var no = numbers[i];
+        if( numbers.indexOf(no+1)>=0 && numbers.indexOf(no+2)>=0 ) return true;
+    }
+    return false;
+})
       }
     </script>
   </body>
